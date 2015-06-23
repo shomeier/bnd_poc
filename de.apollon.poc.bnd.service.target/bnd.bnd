@@ -1,0 +1,48 @@
+-buildpath: \
+	osgi.core,\
+	osgi.cmpn,\
+	biz.aQute.bnd.annotation,\
+	${junit},\
+	slf4j.api
+-outputmask: ${@bsn}-${version;===S;${@version}}.jar
+Bundle-Version: 1.0.0.SNAPSHOT
+Private-Package: \
+	de.apollon.poc.bnd.service.target.internal.master,\
+	de.apollon.poc.bnd.service.target.internal.slave
+Service-Component: *
+bin: target/classes
+src: src/main/java
+target-dir: target
+testbin: target/test-classes
+testsrc: src/main/test
+javac.source: 1.7
+javac.target: 1.7
+-runproperties: \
+	felix.fileinstall.dir=config, \
+	felix.fileinstall.noInitialDelay=true, \
+	felix.fileinstall.poll=1000, \
+	felix.fileinstall.log.level=3, \
+	org.osgi.service.http.port=8082, \
+	logback.configurationFile=config/logback.xml
+Export-Package: de.apollon.poc.bnd.service.target.slave
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.scr)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.fileinstall)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=de.apollon.poc.bnd.service.target)'
+-runfw: org.apache.felix.framework;version='[4.4.1,4.4.1]'
+-runee: JavaSE-1.7
+-runbundles: \
+	biz.aQute.bnd.annotation;version='[2.4.0,2.4.1)',\
+	ch.qos.logback.classic;version='[1.1.2,1.1.3)',\
+	ch.qos.logback.core;version='[1.1.2,1.1.3)',\
+	de.apollon.poc.bnd.service.target;version='[1.0.0,1.0.1)',\
+	org.apache.felix.configadmin;version='[1.8.0,1.8.1)',\
+	org.apache.felix.fileinstall;version='[3.4.0,3.4.1)',\
+	org.apache.felix.gogo.command;version='[0.14.0,0.14.1)',\
+	org.apache.felix.gogo.runtime;version='[0.12.1,0.12.2)',\
+	org.apache.felix.gogo.shell;version='[0.10.0,0.10.1)',\
+	org.apache.felix.scr;version='[1.8.2,1.8.3)',\
+	osgi.residential;version='[4.3.0,4.3.1)',\
+	slf4j.api;version='[1.7.7,1.7.8)'
