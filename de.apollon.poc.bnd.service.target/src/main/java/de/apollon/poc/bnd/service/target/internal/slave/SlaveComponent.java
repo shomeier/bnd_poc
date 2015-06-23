@@ -22,7 +22,7 @@ import de.apollon.poc.bnd.service.target.slave.Slave;
  * @author SHomeier
  */
 @ProviderType
-@Component(name = SlaveComponent.COMPONENT_NAME, provide = Slave.class, designateFactory = SlaveConfig.class, configurationPolicy = ConfigurationPolicy.require, enabled = true, immediate = true)
+@Component(name = SlaveComponent.COMPONENT_NAME, provide = Slave.class, designateFactory = SlaveConfig.class, configurationPolicy = ConfigurationPolicy.require, enabled = true)
 public class SlaveComponent implements Slave
 {
 	/**
