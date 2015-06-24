@@ -10,7 +10,10 @@ There exists two components:
 An instance of the Slave Component is bind to an instance of a Master Component. This "wiring" is done dynamically during runtime by configuration properties:
 
 For example:
-Master Component has the property: slave.target = slave.target = (id=slave_one)
-Slave Component has the property: id = slave_one
+Master Component has the property:
+slave.target = slave.target = (id=slave_one)
+
+Slave Component has the property:
+id = slave_one
 
 In this case the instance of the Master Component bind the Slave Component instance with id = slave_one.
